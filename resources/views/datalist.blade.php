@@ -14,7 +14,7 @@
                                 </div>
                                 <div class="breadcomb-ctn">
                                     <h2>Dashboard One</h2>
-                                    <p>Welcome to Nalika <span class="bread-ntd">Admin Template</span></p>
+                                    <p>Welcome to Nalika <span class="bread-ntd">Admin temp</span></p>
                                 </div>
                             </div>
                         </div>
