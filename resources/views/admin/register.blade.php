@@ -43,7 +43,7 @@
                                     <label>Username</label>
                                     <input class="form-control">
                                 </div> --}}
-
+                                <input type="hidden" name="affiliate_id" value="{{ session('affiliate_id') }}">
                               <div class="form-group col-lg-8">
                                   <label>Username</label>
                                   <input class="form-control" name="name" value="{{ old('name')}}">

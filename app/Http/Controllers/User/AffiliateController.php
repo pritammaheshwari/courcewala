@@ -4,46 +4,19 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Userlist;
-use App\Models\Course;
+use App\Models\User;
 
-
-
-class CourceController extends Controller
+class AffiliateController extends Controller
 {
-
-
-    public function index()
-    {
-        //
-        $courses = Course::all();
-        return view('user.courceList',compact('courses'));
-    }
-    
-    // course detail page 
-    public function courseDetail($id)
-    {
-        //
-     $coursedetails = Course::find($id);
-        if (!$coursedetails) {
-            abort(404);
-        }
-
-        return view('user.courcedetail',compact('coursedetails'));
-    }
-
-
-
- 
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function import()
+    public function index()
     {
         //
-        return view('user.upload');
+        return view('user.affiliateDashboard');
     }
 
     /**
@@ -51,30 +24,9 @@ class CourceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function upload(Request $request)
+    public function create()
     {
-        $file = $request->file('csv_file');
-
-        if ($file->isValid() && $file->getClientOriginalExtension() == 'csv') {
-            $handle = fopen($file->getRealPath(), "r");
-           
-            
-
-            if ($handle !== FALSE) {
-                while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-                    // Replace this with your own code to insert the data into your database table.
-                    Userlist::create([
-                        'firstname' => $data[0],
-                        'email' => $data[1],
-                        'password' => $data[2],
-                        // ...
-                    ]);
-                }
-                fclose($handle);
-            }
-        }
-
-        // You can redirect back to the previous page or show a view here.
+        //
     }
 
     /**

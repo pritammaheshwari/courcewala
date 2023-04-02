@@ -2,18 +2,32 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Models\Userlist;
 use App\Models\User;
 use Hash;
 use Auth;
+
+
 
 class AdminLoginController extends Controller
 {
 
 
 
-    public function registrationForm()
+    public function registrationForm(Request $request)
+
     {
+
+        $referral_code = $request->query('ref');
+
+
+        $affiliate = User::where('referral_code', $referral_code)->first();
+
+        if ($affiliate) {
+            session(['affiliate_id' => $affiliate->id]);
+        }
+
         return view('admin.register');
         //
     }
@@ -24,11 +38,13 @@ class AdminLoginController extends Controller
     public function registration(Request $request)
     {
 
-        $userStore =new User();
-         $userStore->name = $request->name;
+        $userStore = new User();
+        $userStore->name = $request->name;
         $userStore->email =$request->email;
         $userStore->role ='2';
         $userStore->password= Hash::make($request->password);
+        $userStore->affiliate_id = $request->affiliate_id;
+        $userStore ->referral_code = Str::random(8);
         $userStore->save();
         return redirect()->route('dashboard');
 

@@ -5,7 +5,11 @@ use App\Http\Controllers\filterController;
 use App\Http\Controllers\AdminLoginController;
 // use App\Http\Controllers\Admin\CourceController;
 use App\Http\Controllers\User\CourceController;
+use App\Http\Controllers\User\AffiliateController;
+
 use App\Http\Middleware\UserAuth;
+
+
 
 
 /*
@@ -36,8 +40,13 @@ Route::get('/welcomeAdmin', [filterController::class, 'welcomeAdmin'])->name('we
 // Route::middleware(['user'])->group(function () {
      Route::get('/dashboard', [filterController::class, 'dashboard'])->name('dashboard');
      Route::get('/courcelist', [CourceController::class, 'index'])->name('courceList');
+     Route::get('/course-detail/{id}', [CourceController::class, 'courseDetail'])->name('courseDetail');
      Route::get('/import', [CourceController::class, 'import'])->name('import');
      Route::post('/upload', [CourceController::class, 'upload'])->name('upload');
+     
+     Route::get('/affiliateDashboard', [AffiliateController::class, 'index'])->name('affiliateDashboard');
+    //  Route::get('/register/{referral_code}', [AffiliateController::class, 'showRegistrationForm']);
+
   
 
 // });

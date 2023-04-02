@@ -14,6 +14,7 @@
                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                 <!-- Dark Logo icon -->
                 <img
+                  {{-- src="{{asset('images/logo-icon.png')}}" --}}
                   src="{{asset('images/logo-icon.png')}}"
                   alt="homepage"
                   class="light-logo"
@@ -24,11 +25,13 @@
               <!-- Logo text -->
               <span class="logo-text ms-2">
                 <!-- dark Logo text -->
-                <img
-                  src="{{asset('images/logo-text.png')}}"
+                {{-- <img --}}
+                  {{-- src="{{asset('images/logo-text.png')}}" --}}
+                  {{-- src="{{asset('images/logo-text.png')}}"
                   alt="homepage"
-                  class="light-logo"
-                />
+                  class="light-logo" --}}
+                {{-- /> --}}
+                <b><h3 style="color:red">Digital University <h3></b>
               </span>
               <!-- Logo icon -->
               <!-- <b class="logo-icon"> -->
@@ -351,10 +354,19 @@
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
-                  href="charts.html"
+                  href="{{route('affiliateDashboard')}}"
+                  aria-expanded="false"
+                  ><i class="mdi mdi-view-dashboard"></i
+                  ><span class="hide-menu">Affiliate Dashboard</span></a
+                >
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="{{route('courceList')}}"
                   aria-expanded="false"
                   ><i class="mdi mdi-chart-bar"></i
-                  ><span class="hide-menu">Charts</span></a
+                  ><span class="hide-menu">All Cources</span></a
                 >
               </li>
               <li class="sidebar-item">

@@ -1,4 +1,4 @@
  <footer class="footer text-center">
-          All Rights Reserved by Matrix-admin. Designed and Developed by
-          <a href="https://www.wrappixel.com">WrapPixel</a>.
+          All Rights Reserved by digital . Designed and Developed by Pritam Maheshwari
+          {{-- <a href="https://www.wrappixel.com">WrapPixel</a>. --}}
         </footer>
