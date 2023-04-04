@@ -38,6 +38,7 @@
                                     </div>
                                     <div class="breadcomb-ctn">
                                         <h2>Dashboard One</h2>
+                                      
                                         <p>Welcome to Our <span class="bread-ntd">Digital University</span></p>
                                     </div>
                                 </div>
@@ -61,7 +62,7 @@
         <h1 class="mb-3">Course Listings</h1>
 
         <div class="row">
-          @foreach ($courses as $item)
+          @foreach ($paidCourses as $item)
           <div class="col-md-4 mb-4">
             <div class="card">
               {{-- <img {{ asset('/') }} alt="Course Image" class="card-img-top"> --}}

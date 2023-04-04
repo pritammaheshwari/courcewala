@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Userlist;
 use App\Models\Course;
+use App\Models\Mycourse;
+use Auth;
+use DB;
 
 
 
@@ -34,7 +37,30 @@ class CourceController extends Controller
 
 
 
+    public function myCource()
+    {
+        
+          // Get the authenticated user
+      $user = Auth::user();
+
+      
+    // Get the courses that the user has paid for
+    //   $paidCourses = Mycourse::where('requires_payment', 'true') ->where('user_id',$user->id)->get();
+
+     $paidCourses = DB::table('courses')
+      ->leftJoin('mycourses', 'courses.id', '=', 'mycourses.course_id')
+      ->select('courses.*', 'mycourses.user_id')
+      ->where('requires_payment', 'true') 
+      ->where('user_id',$user->id)
+      ->get();
+
+        return view('user.mycourse',compact('paidCourses'));
+    }
+
  
+
+
+    
     /**
      * Display a listing of the resource.
      *

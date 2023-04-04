@@ -46,17 +46,27 @@
                                 <input type="hidden" name="affiliate_id" value="{{ session('affiliate_id') }}">
                               <div class="form-group col-lg-8">
                                   <label>Username</label>
-                                  <input class="form-control" name="name" value="{{ old('name')}}">
+                                  <input class="form-control" name="name"  value="{{ old('name') }}">
+                                  @if ($errors->has('name'))
+                                  <span class="text-danger">{{ $errors->first('name') }}</span>
+                                @endif
                               </div>
+                             
                          
                                 <div class="form-group col-lg-8">
                                     <label>Email Address</label>
                                     <input class="form-control" name="email" value="{{ old('email')}}">
+                                    @if ($errors->has('email'))
+                                    <span class="text-danger">{{ $errors->first('email') }}</span>
+                                  @endif
                                 </div>
 
                                 <div class="form-group col-lg-8">
                                   <label>Password</label>
                                   <input type="password" class="form-control" name="password" value="{{ old('password')}}">
+                                  @if ($errors->has('password'))
+                                  <span class="text-danger">{{ $errors->first('password') }}</span>
+                                @endif
                                 </div>
                                
         
@@ -73,7 +83,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 text-center">
-                <p>Copyright © 2018 <a href="https://colorlib.com/wp/templates/">Colorlib</a> All rights reserved.</p>
+                <p>Copyright © 2023 <a href=""></a> All rights reserved.</p><p>Develop By- Pritam Maheshwari</p>
             </div>
         </div>
     </div>

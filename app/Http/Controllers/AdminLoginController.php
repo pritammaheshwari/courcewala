@@ -7,6 +7,10 @@ use App\Models\Userlist;
 use App\Models\User;
 use Hash;
 use Auth;
+use Illuminate\Validation\Validator;
+use Illuminate\Support\Facades\Session;
+
+
 
 
 
@@ -38,6 +42,14 @@ class AdminLoginController extends Controller
     public function registration(Request $request)
     {
 
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        
+
         $userStore = new User();
         $userStore->name = $request->name;
         $userStore->email =$request->email;
@@ -45,8 +57,12 @@ class AdminLoginController extends Controller
         $userStore->password= Hash::make($request->password);
         $userStore->affiliate_id = $request->affiliate_id;
         $userStore ->referral_code = Str::random(8);
-        $userStore->save();
-        return redirect()->route('dashboard');
+        $userStore->save(); 
+        return redirect()->route('loginForm')->with([
+            'success' => 'You have been logged out successfully.',
+            'reload' => true,
+        ]);
+
 
     }
 
@@ -55,7 +71,8 @@ class AdminLoginController extends Controller
     {
 
         Auth::logout();
-    
+        
+        $value = Session::pull('affiliate_id');
         return redirect()->route('loginForm');
 
     }

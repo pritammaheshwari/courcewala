@@ -369,7 +369,7 @@
                   ><span class="hide-menu">All Cources</span></a
                 >
               </li>
-              <li class="sidebar-item">
+              {{-- <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"
                   href="widgets.html"
@@ -377,7 +377,31 @@
                   ><i class="mdi mdi-chart-bubble"></i
                   ><span class="hide-menu">Widgets</span></a
                 >
+              </li> --}}
+
+               <li class="sidebar-item">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="{{route('myCource')}}"
+                  aria-expanded="false"
+                  ><i class="mdi mdi-chart-bubble"></i
+                  ><span class="hide-menu">My Cource</span></a
+                >
               </li>
+
+
+
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link waves-effect waves-dark sidebar-link"
+                  href="widgets.html"
+                  aria-expanded="false"
+                  ><i class="mdi mdi-chart-bubble"></i
+                  ><span class="hide-menu">Training</span></a
+                >
+              </li>
+
+              
               <li class="sidebar-item">
                 <a
                   class="sidebar-link waves-effect waves-dark sidebar-link"

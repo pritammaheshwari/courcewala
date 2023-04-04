@@ -31,6 +31,23 @@
     <div class="container-fluid">
       <div class="container mt-4">
         <h2>Dashboard Overview</h2>
+        <span>Name -  </span><h4>
+          
+        <?php  $authName = Auth::user(); 
+         if ($authName !== null) {
+          $name = $authName->name;
+          echo $name;
+          // use $name variable
+        } else {
+          // handle case where $user is null
+        }
+   
+        
+        ?></h4>
+        {{-- <h1>{{$affiliate_id->;}} </h1> --}}
+ <?php
+       
+      ?>
         <hr>
         <div class="row">
           <div class="col-lg-3 col-md-6 mb-4">
@@ -88,13 +105,22 @@
           </div>
 
 <?php 
+$affiliate_id ='';
+    $affiliate_id = Auth::user();
 
-   $affiliate_id = Auth::user();
-    $refurl =$affiliate_id->referral_code;
- 
+         if ($affiliate_id !== null) {
+          $refurl =$affiliate_id->referral_code;
+          $url = url('registrationForm/?ref=').$refurl;
+          echo $url;
+   
+        } else {
+          // handle case where $user is null
+        }
+
+  
+
 // $link = affiliateLink('http://127.0.0.1:8000', $affiliate_id);
-$url = url('registrationForm/?ref=').$refurl;
-echo $url;
+
 // echo 
 
 
@@ -104,7 +130,18 @@ echo $url;
 
           
     </div>
-    
+    <style>
+
+  span {
+    display: inline;
+  }
+
+  h4 {
+    display: inline;
+    margin-left: 10px; /* optional, adds some space between the span and h3 elements */
+    text-transform: capitalize;
+  }
+    </style>
   
      
     

@@ -43,6 +43,11 @@ Route::get('/welcomeAdmin', [filterController::class, 'welcomeAdmin'])->name('we
      Route::get('/course-detail/{id}', [CourceController::class, 'courseDetail'])->name('courseDetail');
      Route::get('/import', [CourceController::class, 'import'])->name('import');
      Route::post('/upload', [CourceController::class, 'upload'])->name('upload');
+     Route::get('/myCource', [CourceController::class, 'myCource'])->name('myCource');
+
+
+
+     
      
      Route::get('/affiliateDashboard', [AffiliateController::class, 'index'])->name('affiliateDashboard');
     //  Route::get('/register/{referral_code}', [AffiliateController::class, 'showRegistrationForm']);
