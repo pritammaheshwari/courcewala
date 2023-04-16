@@ -24,6 +24,7 @@
   </div>
     
 
+    
 
   <div class="container-fluid">
    
@@ -47,10 +48,16 @@
 
         <!-- Course description section -->
         <h2>Course Description</h2>
-        <p>{{$coursedetails->description}}</p>
-        <p>Nullam dapibus dolor eu mauris malesuada, a lobortis augue aliquam. Sed varius, magna eget scelerisque facilisis, neque velit volutpat ante, ac fringilla arcu enim at dolor. Etiam imperdiet arcu quis mauris commodo, id malesuada risus bibendum. Sed non neque non eros ullamcorper tristique. Curabitur faucibus, lectus sit amet laoreet vestibulum, lacus ipsum sagittis ex, sit amet bibendum velit magna at mi. Proin rhoncus risus quis dapibus malesuada. Nullam ac tellus erat.</p>
-    
+        <p> <?php echo $coursedetails->description; ?></p>
+        <p></p>
+ 
+      
+  
+  
       </div>
+
+      <iframe src="{{$coursedetail->link}}" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    
      
 
       <div class="col-md-4">
@@ -77,5 +84,7 @@
 
     
 @endsection
+
+
 
 

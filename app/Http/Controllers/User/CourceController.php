@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Userlist;
 use App\Models\Course;
 use App\Models\Mycourse;
+use App\Models\Video;
+
 use Auth;
 use DB;
 
@@ -27,10 +29,21 @@ class CourceController extends Controller
     public function courseDetail($id)
     {
         //
-     $coursedetails = Course::find($id);
-        if (!$coursedetails) {
-            abort(404);
-        }
+       
+
+    //   $videolinks =Video::select('title','description','link')->where('course_id','=' ,$id)->get();
+    //  $coursedetails = Course::find($id);
+    //     if (!$coursedetails) {
+    //     echo 'something wrong';
+    //     }
+ 
+     return  $coursedetails =DB::table('courses')
+      ->Join('video_links', 'courses.id', '=', 'video_links.course_id')
+      ->select('courses.*', 'video_links.*')
+    //   ->where('id', $id) 
+    //    ->find($id)
+      ->get(); 
+
 
         return view('user.courcedetail',compact('coursedetails'));
     }
@@ -43,7 +56,8 @@ class CourceController extends Controller
           // Get the authenticated user
       $user = Auth::user();
 
-      
+    
+     
     // Get the courses that the user has paid for
     //   $paidCourses = Mycourse::where('requires_payment', 'true') ->where('user_id',$user->id)->get();
 
